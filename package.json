@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "aik index.js",
-    "build": "rm -rf dist && aik index.js --build"
+    "build": "rm -rf dist && aik index.js --build --base /tree-builder"
   },
   "keywords": [],
   "author": "Stanislav Sysoev <@d4rkr00t>",

@@ -65,6 +65,8 @@ const processLetter = char => {
 const getTextWidth = (padding = 0, multiplier = 1) => text => {
   let width = 0;
 
+  if (!text) return width;
+
   for (let i = 0; i < text.length; i++) {
     if (DIGIT_REGEX.test(text[i])) { // DIGIT
       width += DIGIT_SIZE;

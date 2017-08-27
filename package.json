@@ -15,6 +15,7 @@
     "@vx/hierarchy": "0.0.136",
     "@vx/shape": "0.0.136",
     "d3-hierarchy": "^1.1.5",
+    "lodash.clonedeep": "^4.5.0",
     "react": "^15.6.1",
     "react-dom": "^15.6.1"
   }

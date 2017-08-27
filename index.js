@@ -1,6 +1,7 @@
 import './style.css';
 import React from 'react';
 import { hierarchy } from 'd3-hierarchy';
+import clone from 'lodash.clonedeep';
 
 import { loadData, saveData } from './utils/data';
 import { setNodesWidthAndHeight, getTreeWidthAndHeight } from './utils/tree';
@@ -39,6 +40,7 @@ export default class App extends React.Component {
 
     if (!data) return null;
 
+    const rawData = clone(data);
     const dataWithWidth = setNodesWidthAndHeight(nodeHeight, data);
     const { width, height } = getTreeWidthAndHeight(horizontalSpace, verticalSpace, nodeHeight, dataWithWidth);
     const hData = hierarchy(dataWithWidth);
@@ -48,7 +50,7 @@ export default class App extends React.Component {
           <Tree width={width} height={height} margin={margin} data={hData} />
         </div>
         <h2 className="data-title">Data:</h2>
-        <TextArea onChange={this.onDataChange} value={data} />
+        <TextArea onChange={this.onDataChange} value={rawData} />
       </div>
     );
   }

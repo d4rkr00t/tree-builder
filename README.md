@@ -1,4 +1,4 @@
-# Tree Builder 🌳.
+# Tree Builder 🌳
 
 Deployed here ➝ [https://sysoev.org/tree-builder/](https://sysoev.org/tree-builder/).
 

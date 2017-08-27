@@ -35,6 +35,17 @@ export default class App extends React.Component {
     } catch (e) {} // eslint-disable-line
   }
 
+  onDownloadClick = (e) => {
+    e.preventDefault();
+    const svgData = document.querySelector(".svg-container svg").outerHTML;
+    const svgBlob = new Blob([svgData], {type:"image/svg+xml;charset=utf-8"});
+    const svgUrl = URL.createObjectURL(svgBlob);
+    const downloadLink = document.createElement("a");
+    downloadLink.href = svgUrl;
+    downloadLink.download = "tree.svg";
+    downloadLink.click();
+  }
+
   render() {
     const { nodeHeight, verticalSpace, horizontalSpace, margin, data } = this.state;
 
@@ -44,14 +55,16 @@ export default class App extends React.Component {
     const dataWithWidth = setNodesWidthAndHeight(nodeHeight, data);
     const { width, height } = getTreeWidthAndHeight(horizontalSpace, verticalSpace, nodeHeight, dataWithWidth);
     const hData = hierarchy(dataWithWidth);
-    return (
-      <div>
+    return <div>
+        <div className="title-row">
+          <h1 className="title"><b>Tree</b> Builder.</h1>
+          <a href="#" className="download-link" onClick={this.onDownloadClick}>DOWNLOAD</a>
+        </div>
         <div className="svg-container">
           <Tree width={width} height={height} margin={margin} data={hData} />
         </div>
         <h2 className="data-title">Data:</h2>
         <TextArea onChange={this.onDataChange} value={rawData} />
-      </div>
-    );
+      </div>;
   }
 }

@@ -1,6 +1,8 @@
 import React from 'react';
 import { Group } from '@vx/group';
 
+import colors from '../utils/colors';
+
 export default ({ node }) => {
   const width = node.data.width;
   const height = node.data.height || 18;
@@ -18,8 +20,8 @@ export default ({ node }) => {
           width={width}
           y={-height / 2}
           x={-width / 2}
-          fill={"#272b4d"}
-          stroke={node.children ? "#03c0dc" : "#26deb0"}
+          fill={colors.bg}
+          stroke={node.children ? colors.withChildrenStroke : colors.noChildrenStroke}
           strokeWidth={1}
           strokeDasharray={!node.children ? "2,2" : "0"}
           strokeOpacity={!node.children ? .6 : 1}
@@ -32,7 +34,7 @@ export default ({ node }) => {
         fontFamily="Arial"
         textAnchor={"middle"}
         style={{ pointerEvents: "none" }}
-        fill={node.depth === 0 ? "#71248e" : node.children ? "white" : "#26deb0"}
+        fill={node.depth === 0 ? colors.rootNodeText : node.children ? colors.withChildrenText : colors.noChildrenText}
       >
         {node.data.name}
       </text>

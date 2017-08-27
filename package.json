@@ -1,0 +1,21 @@
+{
+  "name": "trees-builder",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "aik index.js",
+    "build": "rm -rf dist && aik index.js --build"
+  },
+  "keywords": [],
+  "author": "Stanislav Sysoev <@d4rkr00t>",
+  "license": "MIT",
+  "devDependencies": {
+    "@vx/gradient": "0.0.136",
+    "@vx/hierarchy": "0.0.136",
+    "@vx/shape": "0.0.136",
+    "d3-hierarchy": "^1.1.5",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1"
+  }
+}

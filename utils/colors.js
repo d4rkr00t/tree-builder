@@ -5,7 +5,9 @@ export default {
     to: "#fe6e9e"
   },
   rootNodeText: "#71248e",
+  highlightNodeText: "#f06292",
   link: "#374466",
+  highlightStroke: "#ec407a",
   noChildrenStroke: "#26deb0",
   withChildrenStroke: "#03c0dc",
   noChildrenText: "#26deb0",

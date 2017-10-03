@@ -6,6 +6,13 @@ import colors from '../utils/colors';
 export default ({ node }) => {
   const width = node.data.width;
   const height = node.data.height || 18;
+  const stroke = node.data.highlight
+    ? colors.highlightStroke
+    : node.children ? colors.withChildrenStroke : colors.noChildrenStroke;
+  const fill = node.data.highlight
+    ? colors.highlightNodeText
+    : node.depth === 0 ? colors.rootNodeText : node.children ? colors.withChildrenText : colors.noChildrenText;
+
   return (
     <Group top={node.x} left={node.y}>
       {node.depth === 0 &&
@@ -21,7 +28,7 @@ export default ({ node }) => {
           y={-height / 2}
           x={-width / 2}
           fill={colors.bg}
-          stroke={node.children ? colors.withChildrenStroke : colors.noChildrenStroke}
+          stroke={stroke}
           strokeWidth={1}
           strokeDasharray={!node.children ? "2,2" : "0"}
           strokeOpacity={!node.children ? .6 : 1}
@@ -34,7 +41,7 @@ export default ({ node }) => {
         fontFamily="Arial"
         textAnchor={"middle"}
         style={{ pointerEvents: "none" }}
-        fill={node.depth === 0 ? colors.rootNodeText : node.children ? colors.withChildrenText : colors.noChildrenText}
+        fill={fill}
       >
         {node.data.name}
       </text>

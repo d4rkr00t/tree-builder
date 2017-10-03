@@ -9,6 +9,7 @@ export default ({ link }) => {
       data={link}
       stroke={colors.link}
       strokeWidth="1"
+      strokeDasharray={link.target.data.link === "dot" ? "2,2" : "0"}
       fill="none"
     />
   );
